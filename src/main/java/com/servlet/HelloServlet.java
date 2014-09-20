@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.parse.ParseNotificationHelper;
 import com.pusher.PusherHelper;
 
 @WebServlet(
@@ -24,7 +25,7 @@ public class HelloServlet extends HttpServlet {
          //String restId = req.getParameter("rId");
          String tableNo = req.getParameter("tableNo");
          PusherHelper.triggerPush("R1", "notify_order", tableNo, "");
-         
+         ParseNotificationHelper.notifyChannel("R1", tableNo, out);
          out.write(tableNo.getBytes());
          out.close();
     }
