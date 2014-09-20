@@ -71,10 +71,13 @@
                 </li>
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <div class="">
                 <ul class="nav navbar-nav">
                     <li class="active">
                         <a href="#">   Dashboard</a>
+                    </li>
+                    <li class="">
+                        <a href="#"> My Restraunt Settings</a>
                     </li>
 
                 </ul>
@@ -190,17 +193,19 @@
 
     </div>
     <!-- /#wrapper -->
-    <<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="/resources/js/pusher.min.js"></script>
+
 
 </body>
+ <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/resources/js/pusher.min.js"></script>
 <script type="text/javascript">
 
-var no_of_tables = [9,3,3,3,3,3,3,3,3,3,3];
+var no_of_tables = 12;
+var all_tables = d3.range(no_of_tables);
 
 
-function drawTables(no_of_tables){
+function drawTables(all_tables){
 
     var div_id = "#tables_div";
 
@@ -220,7 +225,7 @@ function drawTables(no_of_tables){
 
 
         var tables = svg.selectAll("table-circle")
-        .data(no_of_tables)
+        .data(all_tables)
         .enter()
         .append("circle")
         .attr("cy",function(d,i){
@@ -256,7 +261,7 @@ function drawTables(no_of_tables){
                 .attr("stroke-width","0")
         });
 
-        svg.selectAll("g-text").data(no_of_tables)
+        svg.selectAll("g-text").data(all_tables)
             .enter().append("text")
             .attr("x",function(d,i){
                 return 200*(i%4)+xPadding;
@@ -272,7 +277,7 @@ function drawTables(no_of_tables){
             })
 }
 
-drawTables(no_of_tables)
+drawTables(all_tables)
 
 var myPusherFunc = function() {
     Pusher.log = function(message) {
