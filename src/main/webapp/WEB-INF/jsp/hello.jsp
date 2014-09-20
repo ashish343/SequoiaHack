@@ -73,11 +73,11 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="">
                 <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="#">   Dashboard</a>
-                    </li>
                     <li class="">
-                        <a href="#"> My Restraunt Settings</a>
+                        <a href="/">   Dashboard</a>
+                    </li>
+                    <li class="active">
+                        <a href="/mysettings"> My Restaurant Settings</a>
                     </li>
 
                 </ul>
