@@ -29,13 +29,19 @@ public class DefaultController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ServletOutputStream out = response.getOutputStream();
-        //String restId = request.getParameter("rId");
-        String tableNo = request.getParameter("tableNo");
-        PusherHelper.triggerPush("R1", "notify_order", tableNo, "");
+    	String now = (new Date()).toString();
+        HttpSession session = request.getSession();
+        ServletContext sc = session.getServletContext();
+        String x = sc.getRealPath("/");
+        String host = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort(); 
         
-        out.write(tableNo.getBytes());
-        out.close();
+        //ServletOutputStream out = response.getOutputStream();
+        //out.write(host.getBytes());
+        //out.flush();
+        
+        request.setAttribute("path", host);
+        request.setAttribute("now", now);
+        request.getRequestDispatcher("/WEB-INF/jsp/hello.jsp").forward(request, response);
     }
     
     @Override

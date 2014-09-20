@@ -9,19 +9,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.pusher.PusherHelper;
+
 @WebServlet(
-        name = "MyServlet", 
-        urlPatterns = {"/hello"}
+        name = "MyDataServlet", 
+        urlPatterns = {"/data"}
     )
 public class HelloServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        ServletOutputStream out = resp.getOutputStream();
-        out.write("Working heroku".getBytes());
-        out.flush();
-        out.close();
+    	 ServletOutputStream out = resp.getOutputStream();
+         //String restId = req.getParameter("rId");
+         String tableNo = req.getParameter("tableNo");
+         PusherHelper.triggerPush("R1", "notify_order", tableNo, "");
+         
+         out.write(tableNo.getBytes());
+         out.close();
     }
     
 }
