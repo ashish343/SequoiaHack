@@ -16,6 +16,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pusher.PusherHelper;
+
 @SuppressWarnings("serial")
 @WebServlet(
         name = "Servlet", 
@@ -27,19 +29,13 @@ public class DefaultController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String now = (new Date()).toString();
-        HttpSession session = request.getSession();
-        ServletContext sc = session.getServletContext();
-        String x = sc.getRealPath("/");
-        String host = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort(); 
+        ServletOutputStream out = response.getOutputStream();
+        //String restId = request.getParameter("rId");
+        String tableNo = request.getParameter("tableNo");
+        PusherHelper.triggerPush("R1", "notify_order", tableNo, "");
         
-        //ServletOutputStream out = response.getOutputStream();
-        //out.write(host.getBytes());
-        //out.flush();
-        
-        request.setAttribute("path", host);
-        request.setAttribute("now", now);
-        request.getRequestDispatcher("/WEB-INF/jsp/hello.jsp").forward(request, response);
+        out.write(tableNo.getBytes());
+        out.close();
     }
     
     @Override
