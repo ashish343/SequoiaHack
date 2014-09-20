@@ -232,11 +232,28 @@ function drawTables(no_of_tables){
         .attr("r",function(d){
             return 50;
         })
+        .style("cursor","pointer")
         .style("fill",function(d,i){
-            return colors(i);
+            var color = colors(i)
+            d3.select(this)
+                .attr("pre-color",color)
+            return color;
         })
         .attr("class",function(d,i){
             return "table-"+i;
+        })
+        .on("click",function(d,i){
+
+            var pre_color = d3.select(this).attr("pre-color")
+            d3.select(this)
+                .transition()
+                .delay(0)
+                .duration(500)
+                .attr("r","50")
+                .style("fill",function(d,i){
+                    return pre_color;
+                })
+                .attr("stroke-width","0")
         });
 
         svg.selectAll("g-text").data(no_of_tables)
@@ -306,7 +323,7 @@ function animateTable(table_id){
         .attr("stroke-width","2");
 }
 
-//handleNotifications(7)
+//handleNotifications({message: 2})
 
 </script>
 </html>
