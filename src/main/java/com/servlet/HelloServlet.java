@@ -22,10 +22,10 @@ public class HelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
     	 ServletOutputStream out = resp.getOutputStream();
-         //String restId = req.getParameter("rId");
+         String restId = req.getParameter("rId");
          String tableNo = req.getParameter("tableNo");
          PusherHelper.triggerPush("R1", "notify_order", tableNo, "");
-         ParseNotificationHelper.notifyChannel("R1", tableNo, out);
+         ParseNotificationHelper.notifyChannel(restId, tableNo, out);
          out.write(tableNo.getBytes());
          out.close();
     }

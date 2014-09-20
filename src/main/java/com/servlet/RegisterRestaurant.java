@@ -22,7 +22,7 @@ import com.parse.ParseNotificationHelper;
 @SuppressWarnings("serial")
 @WebServlet(
         name = "RegisterRestaurant", 
-        urlPatterns = {"/home"}
+        urlPatterns = {"/register"}
     )
 public class RegisterRestaurant extends HttpServlet {
     protected final Log logger = LogFactory.getLog(getClass());
@@ -30,9 +30,10 @@ public class RegisterRestaurant extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	String restId = request.getParameter("rId");
     	ServletOutputStream outputStream = response.getOutputStream();
     	String customerId = request.getParameter("custId");
-    	ParseNotificationHelper.registerChannel(customerId, "R1", outputStream);
+    	ParseNotificationHelper.registerChannel(customerId, restId, outputStream);
     }
     
     @Override
