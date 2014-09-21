@@ -372,7 +372,7 @@ function generateQrCode(div_id){
     var reward_type = $("#reward-type").val();
     var table_id = $("#table-id").val();
 
-    qr_code_text = "fb_text=" + fb_text + ";tw_text=" + tw_text + ";reward_type=" + reward_type +";rId=r1;tableNo="+table_id+";";
+    qr_code_text = "fb_text=" + fb_text + ";tw_text=" + tw_text + ";reward_type=" + reward_type +";rId=R1;tableNo="+table_id+";";
 
 
     console.log(fb_text,tw_text,reward_type);
