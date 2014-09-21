@@ -20,7 +20,7 @@ import com.pusher.PusherHelper;
 
 @SuppressWarnings("serial")
 @WebServlet(
-        name = "Servlet", 
+        name = "MySettingServlet", 
         urlPatterns = {"/mysettings"}
     )
 public class MySettings extends HttpServlet {
