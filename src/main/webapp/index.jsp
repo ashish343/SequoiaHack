@@ -137,20 +137,7 @@
 
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-red">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-support fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">13</div>
-                                        <div>Support Tickets!</div>
-                                    </div>
-                                </div>
 
-                        </div>
                     </div>
                 </div>
                 <!-- /.row -->
@@ -161,6 +148,7 @@
                     <div class="col-lg-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-twitter fa-fw"></i>Twitter Feed</h3>
                             </div>
                             <div class="panel-body">
                                 <div id="twitter_feed">

@@ -137,22 +137,7 @@
 
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-red">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-support fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">13</div>
-                                        <div>Support Tickets!</div>
-                                    </div>
-                                </div>
 
-                        </div>
-                    </div>
-                </div>
             </div>
                 <!-- /.row -->
 
@@ -204,6 +189,12 @@
                                     <span class="input-group-addon "><i class="fa fa-facebook"></i></span>
                                     <input type="text" class="form-control" id="fb-text" placeholder="Facebook Share"
                                     value="Like us on facebook @facebook">
+                                </div>
+
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon ">TableID</span>
+                                    <input type="text" class="form-control" id="table-id" placeholder="Table ID"
+                                    value="2">
                                 </div>
 
                                 <div class="form-group">
@@ -379,8 +370,10 @@ function generateQrCode(div_id){
     var fb_text = $("#fb-text").val();
     var tw_text = $("#twitter-text").val();
     var reward_type = $("#reward-type").val();
+    var table_id = $("table-id").val();
 
-    qr_code_text = "fb_text=" + fb_text + ";tw_text=" + tw_text + ";reward_type=" + reward_type +";rId=r1;tableNo=2";
+    qr_code_text = "fb_text=" + fb_text + ";tw_text=" + tw_text + ";reward_type=" + reward_type +";rId=r1;tableNo="+table_id+";";
+
 
     console.log(fb_text,tw_text,reward_type);
 
@@ -393,7 +386,6 @@ function generateQrCode(div_id){
         correctLevel : QRCode.CorrectLevel.H
     });
 
-    var button_html ='<button type="button" class="btn btn-primary" onclick="printImg("'+div_id+'")"    >Print QR Code</button>'
     //$("#"+div_id).append(button_html);
    // printImg("qrcode")
 }
