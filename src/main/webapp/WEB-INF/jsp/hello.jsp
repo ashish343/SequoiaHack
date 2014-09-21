@@ -200,7 +200,7 @@
                                 <div class="form-group">
                                     <label>Reward Select</label>
                                     <select class="form-control" id="reward-type">
-                                        <option>Suprise Gift</option>
+                                        <option>Surprise Gift</option>
                                         <option>Instant Reward</option>
                                         <option>200 Cash Coins</option>
                                     </select>
