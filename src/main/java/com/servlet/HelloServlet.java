@@ -26,9 +26,12 @@ public class HelloServlet extends HttpServlet {
     	 ServletOutputStream out = resp.getOutputStream();
          String restId = req.getParameter("rId");
          String tableNo = req.getParameter("tableNo");
+         
          Pusher pusher = new Pusher("63953", "1f7298f8e64c81a0d7de", "babae2b9781a276f1c7a");
          pusher.trigger("R1", "notify_order", Collections.singletonMap("message", tableNo));
          //PusherHelper.triggerPush("R2", "notify_order", "1", "");
+         
+        
          ParseNotificationHelper.notifyChannel(restId, tableNo, out);
          out.write(tableNo.getBytes());
          out.close();
