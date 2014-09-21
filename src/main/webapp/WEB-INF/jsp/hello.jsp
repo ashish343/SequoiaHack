@@ -380,7 +380,7 @@ function generateQrCode(div_id){
     var tw_text = $("#twitter-text").val();
     var reward_type = $("#reward-type").val();
 
-    qr_code_text = "fb_text=" + fb_text + ";tw_text=" + tw_text + ";reward_type=" + reward_type +";";
+    qr_code_text = "fb_text=" + fb_text + ";tw_text=" + tw_text + ";reward_type=" + reward_type +";rId=r1;tableNo=2";
 
     console.log(fb_text,tw_text,reward_type);
 
